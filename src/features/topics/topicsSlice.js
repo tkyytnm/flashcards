@@ -18,10 +18,15 @@ export const topicsSlice = createSlice({
           }
         }
       };
+    },
+    addQuizId(state, action) {
+      state.topics[action.payload.topicId].quizIds.push(action.payload.quizId);
+      return state.topics.topics;
     }
   }
 });
 
 export const selectTopics = (state) => state.topics.topics;
 export const addTopic = topicsSlice.actions.addTopic;
+export const addQuizId = topicsSlice.actions.addQuizId;
 export const topicsReducer = topicsSlice.reducer;
